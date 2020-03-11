@@ -141,6 +141,9 @@
        responsePara.className = 'lexResponse';
        if (lexResponse.message) {
            responsePara.appendChild(document.createTextNode(lexResponse.message));
+           let msg = new SpeechSynthesisUtterance(lexResponse.message);
+           msg.rate = 3;
+           window.speechSynthesis.speak(msg);
            responsePara.appendChild(document.createElement('br'));
        }
        if (lexResponse.dialogState === 'ReadyForFulfillment') {
